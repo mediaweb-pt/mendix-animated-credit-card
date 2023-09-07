@@ -1,0 +1,53 @@
+$fill-color: #191278;
+
+.#{$prefix}.mw-credit--visaelectron {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        $blue: #1A1876;
+        $yellow: #E79800;
+        
+        background: white;
+        color: $blue;
+        font-size: 15px;
+        font-weight: bold;
+        line-height: 18px;
+        text-align: center;
+        text-transform: uppercase;
+    
+    
+        &:before,
+        &:after {
+            content: " ";
+            display: block;
+            height: 25%;
+            width: 100%;
+        }
+    
+        &:before {
+            background: $blue;
+        }
+    
+        &:after {
+            background: $yellow;
+        }
+        .elec {
+            float: right;
+            font-family: arial;
+            font-size: 9px;
+            margin-right: 1px;
+            margin-top: -5px;
+            text-transform: none;
+        }
+    }    
+}

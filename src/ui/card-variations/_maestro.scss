@@ -1,0 +1,58 @@
+$fill-color: #0B2C5F;
+
+.#{$prefix}.mw--card-maestro {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            .#{$prefix}-logo {
+                box-shadow: none;
+            }
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        $blue: #eb001b;
+        $red: #00a2e5;
+        $offset: 0;
+
+        color: #fff;
+        font-size: 14px;
+        font-style: normal;
+        font-weight: bold;
+        line-height: $mastercard-family-name-height;
+        text-align: center;
+        text-shadow: 1px 1px rgba(0, 0, 0, .6);
+        text-transform: lowercase;
+        z-index: 1;
+
+        &:before,
+        &:after {
+            border-radius: math.div($logo-height, 2);
+            content: " ";
+            display: block;
+            height: $logo-height;
+            position: absolute;
+            top: 0;
+            width: $logo-height;
+        }
+    
+        &:before {
+            background: $blue;
+            left: $offset;
+            z-index: -2;
+        }
+    
+        &:after {
+            background: $red;
+            opacity: .8;
+            right: $offset;
+            z-index: -1;
+        }
+    }
+}

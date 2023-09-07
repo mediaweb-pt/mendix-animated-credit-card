@@ -1,0 +1,58 @@
+$fill-color: #CB8000;
+
+.#{$prefix}.mw--card-jcb {
+    &.mw--card-identified {
+        .#{$prefix}-front, .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            box-shadow: none;
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        $logo-margin: 3px;
+        $logo-padding: 2px; 
+        $j-left : #000063; $j-right: #008cff;
+        $c-left : #630000; $c-right: #ff008d;
+        $b-left : #006300; $b-right: #00ff00;
+
+        background-color: white;
+        border-radius: 5px 0 5px 0;
+        color: white;
+        font-style: normal;
+        padding: $logo-padding 0 0 $logo-padding;
+        width: 50px;
+
+        & > div {
+            border-radius: 5px 0 5px 0;
+            display: inline-block;
+            margin-right: 1px;
+            text-align: center;
+            text-shadow: 1px 1px rgba(0, 0, 0, .6);
+            width: 15px ;
+
+            &:before,
+            &:after {
+                content: " ";
+                display: block;
+                height: 8px;
+            }
+            
+            &.j {
+                background: linear-gradient( to right , $j-left, $j-right);
+            }
+
+            &.c {
+                background: linear-gradient( to right , $c-left, $c-right);
+            }
+            
+            &.b {
+                background: linear-gradient( to right , $b-left, $b-right);
+            }
+        }
+    }
+}

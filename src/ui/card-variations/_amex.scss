@@ -1,0 +1,73 @@
+$fill-color: #108168;
+
+.mw-credit-card.mw--card-amex {
+
+    &.mw-credit-card-flipped{
+        transform: none;
+    }
+
+    &.mw--card-identified {
+        .#{$prefix}{
+            &-front,
+            &-back {
+                &:before {
+                    background-color: $fill-color;
+                }
+            }
+
+            &-front {
+                &:after {
+                    opacity: 1;
+                }
+                .mw-credit-card-logo {
+                    opacity: 1;
+                }    
+                .mw-credit-card-cvc {
+                    visibility: visible;
+                }
+            }
+        }
+    }
+
+    .mw-credit-card-logo {
+        $box-offset: 8px;
+        $box-width: $logo-height - $box-offset;
+        $box-height: $box-width;
+        $font-padding: 2px;
+        $font-size: 4px;
+    
+        background-image: repeating-radial-gradient(circle at center, #FFF 1px, #999 2px);
+        border: 1px solid #EEE;
+        color: #fff;
+        font-size: $font-size;
+        font-weight: bold;
+        text-transform: uppercase;
+    
+        &:before,
+        &:after {
+            display: block;
+            left: math.div($logo-width - $box-width, 2);
+            position: absolute;
+            width: $box-width;
+        }
+    
+        &:before {        
+            $blue: #267ac3;
+
+            background: $blue;
+            content: "american";
+            height: $box-height;
+            padding-left: $font-padding;
+            padding-top: math.div($box-height, 2) - $font-size + 1;
+            text-align: left;
+            top: math.div($box-offset, 2) - 1;
+        }
+    
+        &:after {
+            bottom: math.div($box-height, 2) - $font-size + 1;
+            content: "express";
+            padding-right: $font-padding;
+            text-align: right;
+        }
+    }
+}

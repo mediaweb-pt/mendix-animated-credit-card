@@ -1,0 +1,46 @@
+/* Safari issues */
+.body.safari .mw--card-identified {
+    .mw-credit-card-front,
+    .mw-credit-card-back {
+        &:before {
+            @include card-texture($radial-gradient: false);
+        }
+    }
+}
+
+/* IE isues */
+body.ie10,
+body.ie11 {
+    .mw-credit-card-flipped {
+        transform: rotateY(0deg);
+
+        .mw-credit-card-front {
+            transform: rotateY(0deg);
+        }
+        
+        .mw-credit-card-back {
+            transform: rotateY(0deg);
+
+            &:after {
+               left: 18%;
+            }
+
+            .mw-credit-card-cvc {
+                left: 5%;
+                transform: rotateY(180deg);
+            }
+
+            .mw-credit-card-chip  {
+                left: 84%;
+                &:after {
+                    left: -480%;
+                    transform: rotateY(180deg);
+                }
+            }
+        }
+    }
+}
+.mw-credit-card.mw-credit-card-ie-10.mw-credit-card-amex .mw-credit-card-back, 
+.mw-credit-card.mw-credit-card-ie-11.mw-credit-card-amex .mw-credit-card-back {
+    display: none;
+}

@@ -1,0 +1,44 @@
+$fill-color: #191278;
+
+.#{$prefix}.mw--card-visa {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            box-shadow: none;
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        color: white;
+        font-size: 24px;
+        font-weight: bold;
+        line-height: 18px;
+        margin-top: 5px;
+        text-align: center;
+        text-transform: uppercase;
+    
+        &:before,
+        &:after {
+            content: " ";
+            display: block;
+            height: 25%;
+            width: 100%;
+        }
+    
+        &:before {
+            border-color: transparent #fff transparent transparent;
+            border-style: solid;
+            border-width: 0 12px 6px 0;
+            height: 0;
+            left: -4px;
+            position: absolute;
+            width: 0;
+        }
+    }
+}

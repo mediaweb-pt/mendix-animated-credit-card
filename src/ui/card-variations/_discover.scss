@@ -1,0 +1,84 @@
+$fill-color: #86B8CF;
+$highlight-color: #FF6600;
+
+.#{$prefix}.mw--card-discover {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            opacity: 1;
+        }
+
+        .#{$prefix}-front:after {
+            $size: 50px;
+            background: linear-gradient($highlight-color, lighten($highlight-color, 20%), $highlight-color);
+            border-radius: math.div($size, 2);
+            box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, .5);
+            content: "";
+            display: block;
+            height: $size;
+            left: 100%;
+            margin-left: math.div(-$size, 2);
+            position: absolute;
+            top: 15%;
+            transition: all $card-transition-time linear;
+            width: $size;
+        }
+    }
+
+    .#{$prefix}-logo {
+        $orange: #FF6600;
+        $offset: 9px;
+        background: $orange;
+        border: 1px solid #eee;
+        color: #111;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: bold;
+        letter-spacing: .03em;
+        overflow: hidden;
+        padding-top: $offset;
+        right: 12%;
+        text-align: center;
+        text-transform: uppercase;
+        top: 18%;
+        z-index: 1;        
+    
+        &:before, 
+        &:after {
+            content: " ";
+            display: block;
+            position: absolute;
+        }
+    
+        &:before {
+            $size: 200px;
+
+            background: white;
+            border-radius: $size;
+            bottom: -5%;
+            height: $size;
+            right: -80%;
+            width: $size;
+            z-index: -1;
+        }
+    
+        &:after {
+            $size: 8px;
+            background: radial-gradient($orange, #fff);
+            border-radius: math.div($size, 2);
+            content: "network";
+            font-size: 4px;
+            height: $size;
+            left: 27px;
+            line-height: 24px;
+            text-indent: -7px;
+            top: $offset + 1;
+            width: $size;
+        }
+    }
+}

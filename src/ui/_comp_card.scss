@@ -1,0 +1,316 @@
+.#{$prefix}{
+    border-radius: $card-border-radius;
+    font-family: $card-font-family;
+    height: 100%;
+    line-height: 1;
+    min-width: 315px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: all $card-transition-time linear;
+    width: 100%;
+  
+    & > *,
+    & > *:after,
+    & > *:before {
+        box-sizing: border-box;
+        font-family: inherit;
+    }
+
+    .phone & {        
+        min-width: initial;
+    }
+
+    &-wrapper {
+        height: $card-height;
+        margin: auto;
+        max-width: 100%;
+        perspective: 1000px;
+        position: relative;
+        width: $card-width;
+        z-index: 1;
+
+        .phone & {
+            height: $card-height - 20;
+        }
+    }
+  
+    &-flipped {
+        transform: rotateY(180deg);
+    }
+  
+    &-back,
+    &-front {
+        backface-visibility: hidden;
+        background: #ddd;
+        border-radius: $card-border-radius;
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        transform-style: preserve-3d;
+        transition: all $card-transition-time linear;
+        width: 100%;
+    
+        &:before {
+            border-radius: 10px;
+            content: "";
+            display: block;
+            height: 100%;
+            left: 0;
+            opacity: 0;
+            position: absolute;
+            top: 0;
+            transition: all $card-transition-time ease;
+            width: 100%;
+        }
+    
+        &:after {
+            content: "";
+            display: block;
+        }
+    
+        .mw-card-display {
+            color: $card-font-color;
+            font-weight: normal;
+            opacity: 0.7;
+            transition: opacity $card-transition-time linear;
+    
+            // &.mw-credit-card-focused {
+            //     opacity: 1;
+            //     font-weight: 700;    
+            // }
+        }
+    
+        .mw-credit-card-cvc {
+            font-family: $card-monospace-font-family;
+            font-size: 14px;
+        }
+    
+        .mw-credit-card-chip {        
+            $color: #ccc;
+            $radius: 5px;
+
+            background: $color;
+            border-radius: $radius;
+            height: 35px;
+            margin-bottom: 10px;
+            position: relative;
+            width: 50px;
+    
+            &:before {            
+                $height: 60%;
+
+                background: lighten($color, 5%);
+                border-bottom-right-radius: $radius;
+                border-top-right-radius: $radius;
+                content: "";
+                display: block;
+                height: $height;
+                position: absolute;
+                top: calc((100% - $height) / 2);
+                width: 70%;
+            }
+        }
+    }
+  
+    &-front {
+        .#{$prefix}{
+            &-logo {
+                font-style: italic;
+                height: $logo-height;
+                opacity: 0;
+                position: absolute;
+                right: 5%;
+                top: 8%;
+                transition: all $card-transition-time linear;
+                width: $logo-width;
+           }
+
+            &-lower {
+                $width: 80%;
+    
+                bottom: 30px;
+                left: calc((100% - $width) / 2);
+                position: absolute;
+                width: $width;
+    
+                .phone & {
+                    left: 5%;
+                    width: 90%;
+                }
+        
+                .mw-credit-card-cvc {
+                    bottom: 5px;
+                    float: right;
+                    position: relative;
+                    visibility: hidden;
+                }
+        
+                .mw-credit-card-number {
+                    clear: both;
+                    font-family: $card-monospace-font-family;
+                    font-size: 24px;
+                    margin-bottom: 20px;
+
+                    &,
+                    & span {
+                        white-space: nowrap;
+                    }
+
+                    .phone & {
+                        font-size: 18px;
+                    }
+                }
+        
+                .mw-credit-card-name {
+                    bottom: 0;
+                    display: block;
+                    font-family: $card-monospace-font-family;
+                    font-size: 20px;
+                    max-height: 30px;
+                    max-width: 200px;
+                    overflow: hidden;
+                    position: absolute;
+                    text-overflow: ellipsis;
+                    text-transform: uppercase;                    
+                    width: 60%;
+
+                    &,
+                    & span {
+                        white-space: nowrap;
+                    }
+
+                    .phone & {
+                        font-size: 18px;
+                    }
+                }
+        
+                .mw-credit-card-expiry {
+                    $label-padding: 5px;
+
+                    float: right;
+                    font-family: $card-monospace-font-family;
+                    letter-spacing: 0;
+                    position: relative;
+                    width: 25%;                
+        
+                    &:after,
+                    &:before {
+                        display: block;
+                        font-family: $card-font-family;
+                        font-size: 7px;
+                        font-weight: bold;
+                        opacity: .5;
+                        white-space: pre;
+                    }
+            
+                    &:before {
+                        content: attr(data-before);
+                        font-size: 7px;
+                        margin-bottom: $label-padding - 3px;
+                        text-transform: uppercase;
+                    }
+            
+                    &:after {
+                        bottom: 0;
+                        content: attr(data-after);
+                        margin-right: $label-padding;
+                        margin-top: 2px;
+                        position: absolute;
+                        right: 100%;
+                        text-align: right;
+                    }
+                }
+            }
+        }
+    }
+  
+    &-back {
+        $bar-top-offset: 40%;
+        $signature-height: 16%;
+        $signature-left: 2%;
+
+        transform: rotateY(180deg);
+    
+        &:after {
+            background-image: linear-gradient(#fff, #fff);
+            content: "";
+            display: block;
+            height: $signature-height;
+            left: $signature-left;
+            position: absolute;
+            top: $bar-top-offset;
+            width: 80%;
+        }
+    
+        .#{$prefix}{
+            &-bar {
+                background-image: linear-gradient(#444, #333);
+                height: 20%;
+                position: absolute;
+                top: 10%;
+                width: 100%;
+            }
+
+            &-cvc {
+                left: 85%;
+                position: absolute;
+                top: $bar-top-offset;
+                transition-delay: ($card-transition-time + 200ms);
+            }
+
+            &-chip {
+                left: $signature-left;
+                position: absolute;
+                top: $bar-top-offset + $signature-height + 10%;
+        
+                &:after {
+                    color: #fff;
+                    content: "This card has been updated & ported into OutSystems by Alexandre Santos @Mediaweb. Based on a component by Jesse Pollak. It comes with no warranty. For more components like this, visit: https://mediaweb.pt/services";
+                    font-size: 7px;
+                    left: 120%;
+                    letter-spacing: .1px;
+                    opacity: .5;
+                    position: absolute;
+                    top: 5%;
+                    width: 230px;
+                }
+            }
+        }    
+    }
+  
+    &.mw--card-identified {
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    
+        .#{$prefix}{
+            &-back,
+            &-front {
+                background: #000;
+                -servicestudio-background: #0061A8;
+                background-color: rgba(0, 0, 0, 0.5);
+        
+                &:before {
+                    @include card-texture();
+                    opacity: 1;
+                    transition: all $card-transition-time linear;
+                }
+        
+                &-logo {
+                    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.3);
+                }
+            }
+        }
+    
+        &.no-radial-gradient {
+            .#{$prefix}{
+                &-back,
+                &-front {
+                    &:before {
+                        @include card-texture($radial-gradient: false);
+                    }
+                }
+            }
+        }
+    }
+}

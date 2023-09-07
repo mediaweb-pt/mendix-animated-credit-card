@@ -1,0 +1,116 @@
+$fill-color: #0055C7;
+
+.#{$prefix}.mw--card-dankort {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        $padding: 3px;
+        $black: #000;
+        $inner-height: $logo-height - ($padding * 2) - 2; /* height - padding - border*/
+        $letter-height: $inner-height * .55;
+        $radius: 8px;
+        $red: #ed1c24;
+        $white: #fff;
+
+        background-color: $white;
+        border: $black 1px solid;
+        border-radius: $radius;
+        height: $logo-height;
+        padding: $padding;
+        width: $logo-width;
+  
+        .dk {
+            height: 100%;
+            overflow: hidden;
+            position: relative;
+            width: 100%;
+  
+            &:before {
+                background-color: $red;
+                border-radius: $radius*.75;
+                content: "";
+                display: block;
+                height: 100%;
+                position: absolute;
+                width: 100%;
+            }
+            &:after {
+                border-color: transparent $red transparent transparent;
+                border-style: solid;
+                border-width: 7px 7px 10px 0;
+                content: "";
+                height: 0;
+                margin-top: math.div($letter-height, 2) * -1;
+                position: absolute;
+                right: 0;
+                top: 50%;
+                width: 0;
+                z-index: 1;
+            }
+        }
+  
+        .d,
+        .k {
+            background: #fff;
+            display: block;
+            height: $letter-height;
+            margin-top: math.div($letter-height, 2) * -1;
+            position: absolute;
+            top: 50%;
+            width: 50%;
+        }
+        .d {
+            border-radius: 0 8px 10px 0;
+            left: 0;
+
+            &:before {
+                background: $red;
+                border-radius: 2px 4px 6px 0;
+                content: "";
+                display: block;
+                height: 5px;
+                left: 50%;
+                margin: -3px 0 0 -4px;
+                position: absolute;
+                top: 50%;
+                width: 7px;
+            }
+        }
+        .k {
+            right: 0;
+    
+            &:before,
+            &:after {
+                border-style: solid;
+                content: "";
+                height: 0;
+                margin-right: -1px;
+                position: absolute;
+                right: 50%;
+                width: 0;
+            }
+    
+            &:before {
+                border-color: $red transparent transparent transparent;
+                border-width: 8px 5px 0 0;
+                top: 0;
+            }
+    
+            &:after {
+                border-color: transparent transparent $red transparent;
+                border-width: 0 5px 8px 0;
+                bottom: 0;
+            }
+        }
+    }  
+}

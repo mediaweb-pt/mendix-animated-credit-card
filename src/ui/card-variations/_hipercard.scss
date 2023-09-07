@@ -1,0 +1,30 @@
+$fill-color: #770304;
+
+.#{$prefix}.mw--card-hipercard {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            box-shadow: none;
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        color: white;
+        font-size: 21px;
+        font-style: italic;
+        font-weight: bold;
+        height: 20px;
+        width: 100px;
+    
+        &::before, &::after {
+            display: block;
+            position: relative;
+        }
+    }
+}

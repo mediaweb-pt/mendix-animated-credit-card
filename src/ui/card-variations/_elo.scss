@@ -1,0 +1,64 @@
+$fill-color: #6F6969;
+
+.#{$prefix}.mw--card-elo {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo  {
+            opacity: 1;
+        }
+    }
+    
+    .#{$prefix}-logo {
+        background: black;
+        border-radius: 100%;
+        color: white;
+        font-size: 21px;
+        font-style: normal;
+        font-weight: bold;
+        height: 50px;
+        letter-spacing: 1px;
+        padding-top: 13px;
+        text-align: center;
+        text-transform: lowercase;
+        width: 50px;
+    
+        .e, .l, .o {
+            display: inline-block;
+            position: relative;
+        }
+    
+        .e {
+            transform: rotate(-15deg);
+        }
+    
+        .o {
+            background-image: linear-gradient(yellow 50%, red 50%);
+            border-radius: 100%;
+            display: inline-block;
+            height: 12px;
+            position: relative;
+            right: 0;
+            text-indent: -9999px;
+            top: 7px;
+            transform: rotate(40deg);
+            width: 12px;
+    
+            &:before {
+                background: black;
+                border-radius: 100%;
+                content: "";
+                height: 49%;
+                left: 25%;
+                position: absolute;
+                text-indent: -99999px;
+                top: 25%;
+                width: 49%;
+            }
+        }
+    }    
+}

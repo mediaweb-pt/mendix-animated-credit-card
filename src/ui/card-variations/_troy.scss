@@ -1,0 +1,40 @@
+$fill-color: #01adba;
+
+.#{$prefix}.mw--card-troy {
+    &.mw--card-identified {
+        .#{$prefix}-front,
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            box-shadow: none;
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        color: #fff;
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 18px;
+        margin-top: 5px;
+        text-align: center;
+        text-transform: lowercase;    
+    
+        &:before,
+        &:after {
+            background: #22b8c3;
+            content: "\\";
+            display: block;
+            font-size: 0;
+            height: 6%;
+            position: absolute;
+            right: 32%;
+            top: 24%;
+            transform: rotate(105deg);
+            width: 26%;
+        }
+    }
+}

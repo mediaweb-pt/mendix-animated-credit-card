@@ -1,0 +1,33 @@
+/* ==================================================================== */
+/*  MW Credit Card                                                      */
+/*                                                                      */
+/*  by Jesse Pollack -> github.com/jessepollak/card                     */
+/*  updated & ported into OutSystems by Alexandre Santos                */
+/*  @Mediaweb -> https://mediaweb.pt/services                           */
+/*                                                                      */
+/* ==================================================================== */
+@use "sass:math";
+@import "variables";
+@import "mixin";
+@import "comp_card";
+
+/* ==================================================================== */
+/*  Card Variations                                                     */
+/* ==================================================================== */
+
+@import "card-variations/amex";
+@import "card-variations/discover";
+@import "card-variations/unionpay";
+@import "card-variations/visa";
+@import "card-variations/visaelectron";
+@import "card-variations/mastercard";
+@import "card-variations/maestro";
+@import "card-variations/dankort";
+@import "card-variations/elo";
+@import "card-variations/jcb";
+@import "card-variations/dinersclub";
+@import "card-variations/hipercard";
+@import "card-variations/troy";
+
+
+@import "browser-specific";

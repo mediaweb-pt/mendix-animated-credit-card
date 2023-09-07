@@ -1,0 +1,44 @@
+$fill-color: #999;
+
+.#{$prefix}.mw--card-dinersclub {
+    .#{$prefix}-front .#{$prefix}-logo {
+        box-shadow: none !important;
+    }
+
+    &.mw--card-identified {
+        .#{$prefix}-front, 
+        .#{$prefix}-back {
+            &:before {
+                background-color: $fill-color;
+            }
+        }
+        .#{$prefix}-logo {
+            opacity: 1;
+        }
+    }
+
+    .#{$prefix}-logo {
+        color: #fff;
+        font-family: serif;
+        font-size: 17px;
+        font-style: normal;
+        height: 40px;
+        letter-spacing: 1px;
+        width: 100px;
+    
+        &::before, &::after {
+            display: block;
+            position: relative;
+        }
+    
+        &::before {
+            content: 'Diners Club';
+        }
+    
+        &::after {
+            content: "International";
+            font-size: .6em;
+            text-transform: uppercase;
+        }
+    }
+}
